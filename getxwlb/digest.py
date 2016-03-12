@@ -12,7 +12,7 @@ def gen_words(today):
     cmd = "scrapy crawl xwlb"
     os.system(cmd)
     if os.stat(today+"-content.txt"):
-        cmd = "scws -c utf8 -d /usr/local/etc/dict.utf8.xdb -t 50 -I -a ~r -i " + today + "-content.txt" + " > " + today + "-scwsout.txt"
+        cmd = "scws -c utf8 -d /usr/local/etc/dict.utf8.xdb:./dict/cnmarket_utf8.txt -t 50 -I -a ~r -i " + today + "-content.txt" + " > " + today + "-scwsout.txt"
         os.system(cmd)
     if os.stat(today+"-scwsout.txt"):
         fmt_words(today)
